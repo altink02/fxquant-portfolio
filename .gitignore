@@ -1,0 +1,4 @@
+# Portfolio repository only. No application source lives here.
+*.log
+.DS_Store
+Thumbs.db
