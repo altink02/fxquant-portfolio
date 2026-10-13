@@ -6,10 +6,12 @@
 
 **A local-first algorithmic trading platform whose most important feature is rejecting bad strategies.**
 
-Research → validation → paper → live, for forex and crypto.
+Market data → research → validation → paper simulation, for forex, gold (XAUUSD), and crypto.
+
+[Visual walkthrough](WALKTHROUGH.md) · [Architecture](ARCHITECTURE.md) · [Engineering evidence](EVIDENCE.md) · [More projects](PORTFOLIO.md)
 
 [![Status](https://img.shields.io/badge/status-active_development-blue?style=for-the-badge)](#project-status)
-[![Tests](https://img.shields.io/badge/tests-1637_passing-2ea44f?style=for-the-badge)](#engineering-highlights)
+[![Evidence](https://img.shields.io/badge/evidence-documented_test_runs-2ea44f?style=for-the-badge)](EVIDENCE.md)
 [![Mode](https://img.shields.io/badge/mode-RESEARCH-orange?style=for-the-badge)](#the-one-rule)
 [![Source](https://img.shields.io/badge/source-private-lightgrey?style=for-the-badge)](#ownership)
 
@@ -19,6 +21,29 @@ Research → validation → paper → live, for forex and crypto.
 > implementation is private and proprietary. See [Ownership](#ownership).
 
 ---
+
+## Start here
+
+FXQuant brings market-data engineering, strategy research, risk controls, paper execution,
+and MetaTrader tooling into one local-first platform. Its value as an engineering
+project is the complete decision pipeline: not just a chart or a signal, but the
+data, validation, execution state, and evidence behind that signal.
+
+| Explore | What you will learn |
+|---|---|
+| [Ten-screen visual tour](WALKTHROUGH.md) | What the interface does and how the workflow fits together |
+| [Architecture](ARCHITECTURE.md) | Data flow, dependency boundaries, and the risk-controlled order path |
+| [Engineering evidence](EVIDENCE.md) | Recorded verification, newer XAUUSD/MT5 work, and remaining gaps |
+| [Altin Kalludra's projects](PORTFOLIO.md) | Other public case studies and the CV |
+
+**Public access:** browse this case study and its screenshots directly on GitHub.
+There is no hosted, interactive FXQuant trading demo linked here. The running
+application and implementation remain private and local.
+
+![FXQuant research dashboard](screenshots/01-dashboard.png)
+
+*Archived interface capture, not a live account or a current performance report.
+See the [walkthrough](WALKTHROUGH.md) for capture context.*
 
 ## The premise
 
@@ -36,6 +61,11 @@ If that sounds like it will reject most ideas, it will. That is the feature.
 ---
 
 ## Screenshots
+
+These ten images are real interface captures from an earlier development build.
+Some on-screen phase labels and availability messages have since changed; the
+[engineering evidence](EVIDENCE.md) records the newer development status.
+Open the [full-size guided walkthrough](WALKTHROUGH.md) to understand each screen.
 
 | Dashboard — trading permissions | Strategy library |
 | :---: | :---: |
@@ -142,7 +172,7 @@ These are enforced in code, not documented as intentions.
 
 **Platform**
 - FastAPI backend with WebSocket progress, React + TypeScript terminal
-- 1,637 tests, GitHub Actions CI with dedicated risk and lookahead gates
+- Documented backend test runs and GitHub Actions CI with dedicated risk and lookahead gates; see [dated evidence](EVIDENCE.md)
 - Docker Compose stack
 
 ---
@@ -164,17 +194,19 @@ These are enforced in code, not documented as intentions.
 ## Architecture
 
 ```mermaid
-flowchart LR
+flowchart TD
     Web[React terminal] --> API[FastAPI]
     API --> Services[Application services]
     Services --> Libs[Pure domain libraries]
-    Services --> Lake[(Parquet + DuckDB lake)]
-    Services --> Stream[Live market-data feed]
-    Services --> Exec[Execution engine]
-    Exec --> Risk[Deterministic risk engine]
-    Risk --> Venue[Venue adapter]
+    Services --> Lake[(Parquet and DuckDB)]
+    Services --> Stream[Market-data feed]
+    Services --> Risk[Deterministic risk gate]
+    Risk -->|Approved decision| Exec[Execution engine]
+    Exec --> Venue[Simulated venue]
     Stream --> Binance[Binance WebSocket]
 ```
+
+See [Architecture](ARCHITECTURE.md) for the research and order paths.
 
 Dependency direction is **one-way**: `apps → services → libs`. This is enforced by
 `tests/test_architecture.py`, which parses every file under `libs/` and fails if it imports
@@ -227,14 +259,16 @@ disagreement with a venue is a system that can silently invent a position.
 **Kelly is always fractional and hard-capped.** Full Kelly maximises growth only under
 assumptions that never hold.
 
-**The kill switch cannot un-halt itself.** Re-arming requires an explicit operator action.
+**In-process halts require explicit re-arming.** Durable Python halt state across
+restarts and separate processes remains a deployment gap; see [Evidence](EVIDENCE.md).
 
 ---
 
 ## Testing philosophy
 
-**The distribution matters more than the count.** 1,637 tests, and the interesting ones are
-the ones that can fail for a real reason:
+**The distribution matters more than the count.** The [evidence summary](EVIDENCE.md)
+separates historical full-suite results from later focused checks. The interesting tests
+are the ones that can fail for a real reason:
 
 - **278 causality tests** verify every indicator is causal by recomputing it on truncated
   input. This catches `center=True`, `bfill` and whole-series normalisation without needing
@@ -243,7 +277,8 @@ the ones that can fail for a real reason:
   may breach a hard cap" is an invariant, not an example.
 - **Leakage tests each construct a *known* leak** and assert the scanner catches it. A
   scanner tested only on clean data is untested.
-- **Equivalence tests** prove the generated MQL5 matches the strategy, and include
+- **Model-level equivalence tests** compare generated MQL5 conditions with the strategy;
+  they do not establish independent MetaTrader fill parity. They include
   deliberately broken variants (flipped comparison, wrong shift, changed stop) that must
   *fail* — otherwise the verifier proves nothing.
 
@@ -271,8 +306,11 @@ in the noise of an unrelated fixture-teardown issue.
 
 ## Project status
 
-**Active development. RESEARCH mode. Live trading is disabled and no live broker adapter is
-implemented.**
+**Active development; research/demo only for portfolio purposes.** The Python MT5
+adapter implements market-data and account reads while refusing order writes. Newer
+XAUUSD EA and Pine work exists in the private project, but compilation, desktop tester
+parity, and deployment prerequisites remain unverified or incomplete. See
+[Engineering evidence](EVIDENCE.md).
 
 | Capability | Status |
 |---|---|
@@ -290,7 +328,8 @@ implemented.**
 | Order state machine, idempotency, reconciliation | ✅ |
 | Live Binance WebSocket feed | ✅ |
 | **EA generator + equivalence verification** | ✅ |
-| Live broker / exchange adapters | ❌ |
+| MT5 market-data/account reads | Implemented; order writes refused |
+| Canonical XAUUSD EA and Pine alignment | Source-level work; desktop verification pending |
 | Live trading | ❌ |
 | Machine learning | ❌ |
 | News / NLP | ❌ |
@@ -306,9 +345,9 @@ the point of the platform.
 
 ## Ownership
 
-Built by **Altin Kalludra** ([@ulasmango-cmd](https://github.com/ulasmango-cmd)).
+Built by **[Altin Kalludra](https://github.com/ulasmango-cmd)**.
 
-- GitHub profile: [github.com/ulasmango-cmd](https://github.com/ulasmango-cmd)
+- GitHub profile: [Altin Kalludra](https://github.com/ulasmango-cmd)
 
 ---
 
