@@ -4,6 +4,8 @@
 
 This page highlights three projects relevant to an **AI Operations Specialist** role: practical automation, AI-assisted workflows, APIs, background jobs, human review, and operational safeguards.
 
+**[Browse the permanent visual portfolio and screenshots](https://altink02.github.io/localcanvas-ai/portfolio/)** — available independently of hosted application demos.
+
 > **Review note:** These public repositories are project case studies with screenshots and architecture notes. The application source is kept private. Hosted demonstrations and static showcases are identified separately below. Features described as planned or incomplete are not presented as working.
 
 ## Start here — 3 examples
