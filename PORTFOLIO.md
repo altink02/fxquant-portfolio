@@ -8,6 +8,8 @@
 
 </div>
 
+**For AI Operations Specialist applications:** [See three selected AI and automation project examples](AI-OPERATIONS-PORTFOLIO.md) — with demos, screenshots, workflow details, and honest project-status notes.
+
 Eight product case studies, presented with real interface captures, practical
 workflows, architecture and clear implementation boundaries.
 
