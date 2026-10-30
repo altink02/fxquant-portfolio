@@ -30,7 +30,7 @@ during this review, using seeded demonstration data.
 - Vela marketing navigation no longer points to absent Features/About pages.
   Placeholder footer destinations were replaced by existing product/account
   routes and public portfolio links.
-- N'Lidhje's private application footer no longer names Flamur.
+- N'Lidhje's private application footer now credits Altin Kalludra.
 - LocalCanvas's static page no longer says its text pipeline is unbuilt while
   simultaneously claiming phase 5 is complete.
 - AI Call Agent's public page no longer instructs visitors to clone a
