@@ -1,3 +1,5 @@
+**🖥️ [View this project in the visual showroom](https://altink02.github.io/localcanvas-ai/portfolio/fxquant/)** · [Explore all 8 projects](https://altink02.github.io/localcanvas-ai/portfolio/)
+
 **Altin Kalludra** · [AI Operations project examples](AI-OPERATIONS-PORTFOLIO.md) · [All projects](https://github.com/altink02/fxquant-portfolio/blob/main/PORTFOLIO.md) · [Download CV (PDF)](https://github.com/altink02/atlascall-portfolio/raw/refs/heads/main/cv/Altin-Kalludra-CV.pdf)
 
 <div align="center">
