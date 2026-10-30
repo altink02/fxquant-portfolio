@@ -4,6 +4,8 @@
 
 ### Web applications · Automation · Local AI · Research systems
 
+**[Explore the visual portfolio website — all 8 project showrooms](https://altink02.github.io/localcanvas-ai/portfolio/)**
+
 [Download CV](https://github.com/altink02/atlascall-portfolio/raw/refs/heads/main/cv/Altin-Kalludra-CV.pdf) · [GitHub](https://github.com/altink02) · [Review notes](REVIEW.md)
 
 </div>
@@ -32,6 +34,8 @@ engineering depth and ease of evaluation.
 
 ## 01 · FXQuant
 
+[**View screenshots / visual showroom**](https://altink02.github.io/localcanvas-ai/portfolio/fxquant/)
+
 **Trading research and risk engineering**
 
 [![FXQuant — real product interface](https://raw.githubusercontent.com/altink02/fxquant-portfolio/main/screenshots/01-dashboard.png)](https://github.com/altink02/fxquant-portfolio)
@@ -45,6 +49,8 @@ A local-first research platform joining market data, cost-aware replay, validati
 [Read case study](https://github.com/altink02/fxquant-portfolio) · [Open walkthrough](https://github.com/altink02/fxquant-portfolio/blob/main/WALKTHROUGH.md)
 
 ## 02 · WinCalc
+
+[**View screenshots / visual showroom**](https://altink02.github.io/localcanvas-ai/portfolio/window-calculator/)
 
 **Configuration, pricing and business workflows**
 
@@ -60,6 +66,8 @@ A window-and-door configurator with a dimensioned preview, itemized pricing, cat
 
 ## 03 · SocialMedia Manager
 
+[**View screenshots / visual showroom**](https://altink02.github.io/localcanvas-ai/portfolio/socialmedia-manager/)
+
 **Video pipelines and publishing orchestration**
 
 [![SocialMedia Manager — real product interface](https://raw.githubusercontent.com/altink02/socialmedia-manager/master/screenshots/02-studio.png)](https://github.com/altink02/socialmedia-manager)
@@ -73,6 +81,8 @@ A local-first workflow from content idea to rendered video, human approval, queu
 [Read case study](https://github.com/altink02/socialmedia-manager) · [Open demo](https://socialmedia-manager-eight.vercel.app/studio)
 
 ## 04 · AtlasCall / Chez Relais AK
+
+[**View screenshots / visual showroom**](https://altink02.github.io/localcanvas-ai/portfolio/atlascall/)
 
 **Call-center operations and compliance workflows**
 
@@ -88,6 +98,8 @@ An outbound call-center product bringing campaigns, agent workspaces, supervisio
 
 ## 05 · LocalCanvas AI
 
+[**View screenshots / visual showroom**](https://altink02.github.io/localcanvas-ai/)
+
 **Local-first creative tooling**
 
 [![LocalCanvas AI — real product interface](https://raw.githubusercontent.com/altink02/localcanvas-ai/main/screenshots/10-text-in-image.png)](https://github.com/altink02/localcanvas-ai)
@@ -101,6 +113,8 @@ A self-hosted editor with project storage, nondestructive workflows and text det
 [Read case study](https://github.com/altink02/localcanvas-ai) · [Open visual showcase](https://altink02.github.io/localcanvas-ai/)
 
 ## 06 · Vela Career
+
+[**View screenshots / visual showroom**](https://altink02.github.io/localcanvas-ai/portfolio/vela-career/)
 
 **Resume and job-search workflows**
 
@@ -116,6 +130,8 @@ A career workspace for resume editing, explainable job matching, application tra
 
 ## 07 · AI Call Agent
 
+[**View screenshots / visual showroom**](https://altink02.github.io/ai-call-agent/)
+
 **Agent configuration and backend orchestration**
 
 [![AI Call Agent — real product interface](https://raw.githubusercontent.com/altink02/ai-call-agent/main/screenshots/02-agents.png)](https://github.com/altink02/ai-call-agent)
@@ -129,6 +145,8 @@ A self-hosted call-agent backend and console with tool permissions, provider con
 [Read case study](https://github.com/altink02/ai-call-agent) · [Open visual showcase](https://altink02.github.io/ai-call-agent/)
 
 ## 08 · N'Lidhje
+
+[**View screenshots / visual showroom**](https://altink02.github.io/localcanvas-ai/portfolio/nlidhje/)
 
 **Web and mobile platform design**
 
