@@ -1,4 +1,4 @@
-**Altin Kalludra** · [All projects](https://github.com/altink02/fxquant-portfolio/blob/main/PORTFOLIO.md) · [Download CV (PDF)](https://github.com/altink02/atlascall-portfolio/raw/refs/heads/main/cv/Altin-Kalludra-CV.pdf)
+**Altin Kalludra** · [AI Operations project examples](AI-OPERATIONS-PORTFOLIO.md) · [All projects](https://github.com/altink02/fxquant-portfolio/blob/main/PORTFOLIO.md) · [Download CV (PDF)](https://github.com/altink02/atlascall-portfolio/raw/refs/heads/main/cv/Altin-Kalludra-CV.pdf)
 
 <div align="center">
 
